@@ -1,0 +1,12 @@
+run = "bash scripts/start_streamlit.sh"
+entrypoint = "app.py"
+
+[nix]
+channel = "stable-24_05"
+
+[env]
+PYTHONUNBUFFERED = "1"
+
+[deployment]
+run = ["bash", "scripts/start_streamlit.sh"]
+deploymentTarget = "cloudrun"

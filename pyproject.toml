@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "thoughtful-ai-technical-screen"
+version = "0.1.0"
+description = "Customer support AI agent with Streamlit for Thoughtful AI technical screen"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{ include = "thoughtful_agent" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.42.2"
+openai = "^1.63.2"
+python-dotenv = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
+playwright = "^1.58.0"
+
+[tool.pytest.ini_options]
+markers = [
+	"integration: integration tests for end-to-end project behavior",
+	"live_openai: tests that call the real OpenAI API (opt-in)",
+	"e2e_ui: browser-based UI end-to-end tests (opt-in)",
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
