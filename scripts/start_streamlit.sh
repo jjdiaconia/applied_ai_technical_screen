@@ -2,6 +2,8 @@
 set -euo pipefail
 
 PORT_VALUE="${PORT:-8501}"
+export STREAMLIT_BROWSER_GATHER_USAGE_STATS="false"
+export STREAMLIT_SERVER_HEADLESS="true"
 
 if command -v poetry >/dev/null 2>&1; then
   poetry install --no-interaction --no-ansi
