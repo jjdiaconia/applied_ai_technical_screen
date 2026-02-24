@@ -20,7 +20,7 @@ def test_response_notice_variants() -> None:
     fallback_notice = response_notice(AgentResponse(answer="fallback", source="llm_fallback"))
     assert fallback_notice == (
         "warning",
-        "No direct match found in the predefined dataset. Showing fallback response.",
+        "No direct match found in the predefined dataset. Using OpenAI fallback response.",
     )
 
     error_notice = response_notice(AgentResponse(answer="boom", source="error"))

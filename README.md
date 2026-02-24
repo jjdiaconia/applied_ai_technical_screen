@@ -99,9 +99,21 @@ This repo includes Replit config files:
 
 The script automatically:
 
-- installs dependencies with Poetry when available
+- installs only runtime dependencies (`--only main`) with Poetry when available
 - binds Streamlit to `0.0.0.0`
 - uses Replit's `$PORT` (or `8501` locally)
+
+### Auto-redeploy on Git push
+
+This repo includes [replit-redeploy.yml](.github/workflows/replit-redeploy.yml), which can auto-trigger Replit deployments after pushes to `main`.
+
+One-time setup:
+
+1. In Replit Deployments, create/get a **Deploy Hook URL** for your app.
+2. In GitHub repo settings, add secret `REPLIT_DEPLOY_HOOK_URL` with that hook URL.
+3. Push to `main`.
+
+After that, each push to `main` triggers a redeploy in Replit automatically.
 
 ## Project Structure
 

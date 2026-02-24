@@ -70,7 +70,7 @@ def test_streamlit_ui_shows_fallback_notice_for_no_direct_match() -> None:
             chat_input.press("Enter")
 
             page.get_by_text(
-                "No direct match found in the predefined dataset. Showing fallback response."
+                "No direct match found in the predefined dataset. Using OpenAI fallback response."
             ).wait_for(timeout=8000)
             page.get_by_text("set OPENAI_API_KEY").wait_for(timeout=8000)
 

@@ -1,0 +1,22 @@
+name: Replit Redeploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Replit Deploy Hook
+        env:
+          REPLIT_DEPLOY_HOOK_URL: ${{ secrets.REPLIT_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$REPLIT_DEPLOY_HOOK_URL" ]; then
+            echo "Missing REPLIT_DEPLOY_HOOK_URL secret."
+            exit 1
+          fi
+
+          curl -fsSL -X POST "$REPLIT_DEPLOY_HOOK_URL"

@@ -16,7 +16,7 @@ def response_notice(response: AgentResponse) -> tuple[str, str] | None:
     if response.source == "validation":
         return "info", response.answer
     if response.source == "llm_fallback":
-        return "warning", "No direct match found in the predefined dataset. Showing fallback response."
+        return "warning", "No direct match found in the predefined dataset. Using OpenAI fallback response."
     if response.source == "error":
         return "error", response.answer
     return None

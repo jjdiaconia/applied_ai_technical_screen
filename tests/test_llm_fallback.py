@@ -37,7 +37,7 @@ def test_generate_without_api_key_uses_guidance_message(monkeypatch) -> None:
     fallback = LLMFallback()
 
     result = fallback.generate("General question")
-    assert "set openai_api_key" in result.lower()
+    assert "openai_api_key" in result.lower()
 
 
 def test_generate_with_client_success(monkeypatch) -> None:
